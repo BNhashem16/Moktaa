@@ -41,7 +41,17 @@ function App() {
         onDecode={handleBarcodeScan}
         onError={(error) => console.log(error?.message)}
       />
-      {qrResult && <div>QR Result: {qrResult}</div>}
+      {/* {qrResult && <div>QR Result: {qrResult}</div>} */}
+      {qrResult ?
+        <Alert severity="success">
+          <AlertTitle>{t("success")}</AlertTitle>
+          {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
+        </Alert> :
+        <Alert severity="error">
+          <AlertTitle>{t("error")}</AlertTitle>
+          {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+        </Alert>
+      }
     </div>
   );
 }
