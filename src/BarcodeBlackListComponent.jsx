@@ -20,7 +20,7 @@ const barcodes = [
     {
         "barcode": "6221007083160",
         "barcode_format": "EAN_13",
-        "product_name": "Nescafe Gold Packet",
+        "product_name": "Nescafe Gold Jar",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
         "product_price": "£1.00",
         "product_description": "Nescafe Gold Packet 150g",
@@ -29,7 +29,7 @@ const barcodes = [
     {
         "barcode": "6221007022183",
         "barcode_format": "EAN_13",
-        "product_name": "Nescafe Gold Jar",
+        "product_name": "Nescafe Gold Packet",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
         "product_price": "£1.00",
         "product_description": "Nescafe Gold Jar 150g",
