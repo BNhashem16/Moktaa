@@ -21,9 +21,12 @@ function App() {
   };
 
   const errorAlert = (
-    <Alert severity="error">
-      <AlertTitle>{t("error")}</AlertTitle>
-      {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+    <div>
+      <Alert severity="error">
+        <AlertTitle>{t("error")}</AlertTitle>
+        {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+      </Alert>
+
       {qrResult && qrResult !== null ? (
         <div>
           <div className="container">
@@ -43,6 +46,8 @@ function App() {
                       <td>{barcode.product_name}</td>
                       <td>
                         <img
+                          width="100px"
+                          height="100px"
                           src={barcode.product_image}
                           alt={barcode.product_name}
                         />
@@ -55,7 +60,7 @@ function App() {
           </div>
         </div>
       ) : null}
-    </Alert>
+    </div>
   );
 
   const successAlert = (
@@ -76,15 +81,6 @@ function App() {
           ? errorAlert
           : successAlert
         : null}
-      {/* <Alert severity="success">
-  <AlertTitle>Success</AlertTitle>
-  This is a success alert — <strong>check it out!</strong>
-</Alert>
-
-<Alert severity="error">
-  <AlertTitle>Error</AlertTitle>
-  This is an error alert — <strong>check it out!</strong>
-</Alert> */}
     </div>
   );
 }
