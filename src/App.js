@@ -47,10 +47,14 @@ function App() {
     <Alert severity="success">
       <AlertTitle>{t("success")}</AlertTitle>
       {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
-      <div>
+      {
+        qrResult && qrResult !== null ? (
+          <div>
             <p>Barcode: {qrResult}</p>
             <p>Product Name: {getBarcodeData(qrResult).product_name}</p>
           </div>
+        ) : null
+      }
     </Alert>
   );
 
