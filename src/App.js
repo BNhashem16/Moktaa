@@ -20,38 +20,51 @@ function App() {
   const handleBarcodeScan = (result) => {
     setQrResult(result);
 
-    if (barcodes.includes(result)) {
-      <Alert severity="error">
-        <AlertTitle>{t("error")}</AlertTitle>
-        {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
-      </Alert>;
-      // alert(`Barcode ${result} exists in the array!`);
-    } else {
-      <Alert severity="success">
-        <AlertTitle>{t("success")}</AlertTitle>
-        {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
-      </Alert>;
-      // console.log(`Barcode ${result} does not exist in the array.`);
-    }
+    // if (barcodes.includes(result)) {
+    //   <Alert severity="error">
+    //     <AlertTitle>{t("error")}</AlertTitle>
+    //     {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+    //   </Alert>;
+    //   // alert(`Barcode ${result} exists in the array!`);
+    // } else {
+    //   <Alert severity="success">
+    //     <AlertTitle>{t("success")}</AlertTitle>
+    //     {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
+    //   </Alert>;
+    //   // console.log(`Barcode ${result} does not exist in the array.`);
+    // }
   };
 
+  const errorAlert = (
+    <Alert severity="error">
+      <AlertTitle>{t("error")}</AlertTitle>
+      {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+    </Alert>
+  );
+
+  const successAlert = (
+    <Alert severity="success">
+      <AlertTitle>{t("success")}</AlertTitle>
+      {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
+    </Alert>
+  );
+
   return (
+    console.log(qrResult),
     <div>
       <QrScanner
         onDecode={handleBarcodeScan}
         onError={(error) => console.log(error?.message)}
       />
-      {/* {qrResult && <div>QR Result: {qrResult}</div>} */}
-      {qrResult ?
-        <Alert severity="success">
-          <AlertTitle>{t("success")}</AlertTitle>
-          {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
-        </Alert> :
-        <Alert severity="error">
-          <AlertTitle>{t("error")}</AlertTitle>
-          {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
-        </Alert>
-      }
+       {qrResult && qrResult !== null ? (
+        barcodes.includes(qrResult) ? (
+          errorAlert
+        ) : (
+          successAlert
+        )
+      ) : null}
+
+      
     </div>
   );
 }
