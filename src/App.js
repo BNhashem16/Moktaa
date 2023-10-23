@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import BarcodeScanner from "./BarcodeScanner";
 import { QrScanner } from "@yudiel/react-qr-scanner";
 import { Alert, AlertTitle } from "@mui/material";
 import { useTranslation } from "react-i18next";
