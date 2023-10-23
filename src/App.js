@@ -4,19 +4,20 @@ import { QrScanner } from "@yudiel/react-qr-scanner";
 import { Alert, AlertTitle } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import {
+  BarcodeBlackListComponent,
   barcodeExists,
   getBarcodeData,
 } from "./BarcodeBlackListComponent";
 function App() {
   const [qrResult, setQrResult] = useState(null);
   const { t } = useTranslation();
+  const barcode = getBarcodeData(qrResult);
   // const barcodes = [
   //   "649528906526", // for testing
   // ];
 
   const handleBarcodeScan = (result) => {
     setQrResult(result);
-
   };
 
   const errorAlert = (
@@ -25,8 +26,33 @@ function App() {
       {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
       {qrResult && qrResult !== null ? (
         <div>
-          <p>Barcode: {qrResult}</p>
-          <p>Product Name: {getBarcodeData(qrResult).product_name}</p>
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Barcode</th>
+                      <th scope="col">Product Name</th>
+                      <th scope="col">Product Image</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{barcode.barcode}</td>
+                      <td>{barcode.product_name}</td>
+                      <td>
+                        <img
+                          src={barcode.product_image}
+                          alt={barcode.product_name}
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       ) : null}
     </Alert>
@@ -50,7 +76,7 @@ function App() {
           ? errorAlert
           : successAlert
         : null}
-        {/* <Alert severity="success">
+      {/* <Alert severity="success">
   <AlertTitle>Success</AlertTitle>
   This is a success alert — <strong>check it out!</strong>
 </Alert>
