@@ -40,6 +40,14 @@ function App() {
     <Alert severity="error">
       <AlertTitle>{t("error")}</AlertTitle>
       {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+      {
+        qrResult && qrResult !== null ? (
+          <div>
+            <p>Barcode: {qrResult}</p>
+            <p>Product Name: {getBarcodeData(qrResult).product_name}</p>
+          </div>
+        ) : null
+      }
     </Alert>
   );
 
