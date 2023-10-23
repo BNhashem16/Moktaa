@@ -5,7 +5,15 @@ import { QrScanner } from '@yudiel/react-qr-scanner';
 
 function App() {
   const [qrResult, setQrResult] = useState(null);
-  const barcodes = ["649528906526"];
+  const barcodes = [
+    "649528906526", // for testing
+    "6221031490569", // chipsy forno
+    "6221007083160", // cimo cono
+    "6221007022183", // Nescafe gold packet
+    "8445290212863", // Nescafe gold jar
+    "6221033177239", // Heinz mionize
+    "4601674084288", // Heinz ketchup
+  ];
 
   const handleBarcodeScan = (result) => {
     setQrResult(result);
