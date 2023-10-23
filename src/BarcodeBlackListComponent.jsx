@@ -38,7 +38,7 @@ const barcodes = [
         "product_image": spriteImage,
     },
     {
-        "barcode": "4601674084288",
+        "barcode": "5449000266248",
         "product_name": "sprite",
         "product_image": spriteImage,
     },
