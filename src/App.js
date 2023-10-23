@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import './App.css';
-import BarcodeScanner from './BarcodeScanner';
-import { QrScanner } from '@yudiel/react-qr-scanner';
-
+import React, { useState } from "react";
+import "./App.css";
+import BarcodeScanner from "./BarcodeScanner";
+import { QrScanner } from "@yudiel/react-qr-scanner";
+import { Alert, AlertTitle } from "@mui/material";
+import { useTranslation } from "react-i18next";
 function App() {
   const [qrResult, setQrResult] = useState(null);
+  const { t } = useTranslation();
   const barcodes = [
     "649528906526", // for testing
     "6221031490569", // chipsy forno
@@ -19,11 +21,19 @@ function App() {
     setQrResult(result);
 
     if (barcodes.includes(result)) {
-      alert(`Barcode ${result} exists in the array!`);
+      <Alert severity="error">
+        <AlertTitle>{t("error")}</AlertTitle>
+        {t("this_is_error_alert")} — <strong>{t("product_blacklist")}</strong>
+      </Alert>;
+      // alert(`Barcode ${result} exists in the array!`);
     } else {
-      console.log(`Barcode ${result} does not exist in the array.`);
+      <Alert severity="success">
+        <AlertTitle>{t("success")}</AlertTitle>
+        {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
+      </Alert>;
+      // console.log(`Barcode ${result} does not exist in the array.`);
     }
-  }
+  };
 
   return (
     <div>

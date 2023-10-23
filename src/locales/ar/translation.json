@@ -1,0 +1,9 @@
+{
+    "error": "خطأ",
+    "success": "نجاح",
+    "this_is_error_alert": "هذا تنبيه خطأ",
+    "this_is_success_alert": "هذا تنبيه نجاح",
+    "product_blacklist": "قائمة سوداء المنتج",
+    "product_whitelist": "قائمة بيضاء المنتج"
+}
+  
