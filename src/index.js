@@ -4,10 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
+
+// import bootstrap rtl 
+
+import 'bootstrap/dist/css/bootstrap.rtl.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap-rtl/dist/css/bootstrap-rtl.css';
+
+import { ThemeProvider } from 'react-bootstrap';
+import { createTheme } from '@mui/system';
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider dir="rtl" theme={darkTheme}>
+  <App />
+</ThemeProvider>
   </React.StrictMode>
 );
 

@@ -1,6 +1,6 @@
 const barcodes = [
     {
-        "barcode": "649528906526",
+        "barcode": "6221031490569",
         "barcode_format": "EAN_13",
         "product_name": "Chipsy Forno",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
@@ -9,7 +9,7 @@ const barcodes = [
     },
 
     {
-        "barcode": "6221031490569",
+        "barcode": "6221007083160",
         "barcode_format": "EAN_13",
         "product_name": "Cimo Cono",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
@@ -18,7 +18,7 @@ const barcodes = [
     },
 
     {
-        "barcode": "6221007083160",
+        "barcode": "8445290212863",
         "barcode_format": "EAN_13",
         "product_name": "Nescafe Gold Jar",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
@@ -36,7 +36,7 @@ const barcodes = [
     },
 
     {
-        "barcode": "8445290212863",
+        "barcode": "6221033177239",
         "barcode_format": "EAN_13",
         "product_name": "Heinz Mayonize",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
@@ -45,7 +45,7 @@ const barcodes = [
     },
 
     {
-        "barcode": "6221033177239",
+        "barcode": "4601674084288",
         "barcode_format": "EAN_13",
         "product_name": "Heinz Ketchup",
         "product_image": "https://www.tesco.com/groceries/en-GB/products/296681279",
