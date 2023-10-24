@@ -76,19 +76,13 @@ function App() {
         onDecode={handleBarcodeScan}
         onError={(error) => console.log(error?.message)}
       />
-      {qrResult && qrResult !== null
-        ? barcodeExists(qrResult)
-          ? errorAlert
-          : successAlert
-        : 
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              {qrResult}
-            </div>
-          </div>
-        </div>
-        }
+      {qrResult && qrResult !== null ? (
+        barcodeExists(qrResult) ? (
+          errorAlert
+        ) : (
+          successAlert
+        )
+      ) : null}
     </div>
   );
 }
