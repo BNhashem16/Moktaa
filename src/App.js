@@ -69,20 +69,17 @@ function App() {
       {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
     </Alert>
   );
-
   return (
     <div className="qr-scanner">
       <QrScanner
         onDecode={handleBarcodeScan}
         onError={(error) => console.log(error?.message)}
       />
-      {qrResult && qrResult !== null ? (
-        barcodeExists(qrResult) ? (
-          errorAlert
-        ) : (
-          successAlert
-        )
-      ) : successAlert}
+      {qrResult != null
+        ? barcodeExists(qrResult)
+          ? errorAlert
+          : successAlert
+        : null}
     </div>
   );
 }
