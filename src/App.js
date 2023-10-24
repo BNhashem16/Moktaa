@@ -73,7 +73,14 @@ function App() {
     <div className="qr-scanner">
       <QrScanner
         onDecode={handleBarcodeScan}
-        onError={(error) => console.log(error?.message)}
+              onError={(error) => 
+                  //   alert error
+                  <Alert severity="error">
+                      <AlertTitle>{t("error")}</AlertTitle>
+                  </Alert>
+
+                  
+        }
       />
       {qrResult != null
         ? barcodeExists(qrResult)
