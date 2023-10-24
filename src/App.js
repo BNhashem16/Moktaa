@@ -86,7 +86,13 @@ function App() {
         ? barcodeExists(qrResult)
           ? errorAlert
           : successAlert
-        : null}
+              : 
+              (
+                   <Alert severity="error">
+                      <AlertTitle>.....</AlertTitle>
+                  </Alert>
+              )
+        }
     </div>
   );
 }
