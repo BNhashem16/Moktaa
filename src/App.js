@@ -80,7 +80,15 @@ function App() {
         ? barcodeExists(qrResult)
           ? errorAlert
           : successAlert
-        : null}
+        : 
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              {qrResult}
+            </div>
+          </div>
+        </div>
+        }
     </div>
   );
 }
