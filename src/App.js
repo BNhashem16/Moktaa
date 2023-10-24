@@ -63,11 +63,13 @@ function App() {
     </div>
   );
 
-  const successAlert = (
-    <Alert severity="success">
-      <AlertTitle>{t("success")}</AlertTitle>
-      {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
-    </Alert>
+    const successAlert = (
+    <div>
+        <Alert severity="success">
+        <AlertTitle>{t("success")}</AlertTitle>
+        {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
+        </Alert>
+    </div>
   );
   return (
     <div className="qr-scanner">
@@ -86,13 +88,7 @@ function App() {
         ? barcodeExists(qrResult)
           ? errorAlert
           : successAlert
-              : 
-              (
-                   <Alert severity="error">
-                      <AlertTitle>.....</AlertTitle>
-                  </Alert>
-              )
-        }
+        : null}
     </div>
   );
 }
