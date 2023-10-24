@@ -82,7 +82,7 @@ function App() {
         ) : (
           successAlert
         )
-      ) : null}
+      ) : successAlert}
     </div>
   );
 }
