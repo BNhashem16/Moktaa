@@ -6,6 +6,17 @@ self.addEventListener('install', (event) => {
         '/index.html',
         '/static/**/*.js',
         '/static/**/*.css',
+        // favicon
+        '/favicon.ico',
+        // manifest
+        '/manifest.json',
+        // logo
+        '/logo192.png',
+        '/logo512.png',
+        // robots
+        '/robots.txt',
+        // service worker
+        
       ]);
     })
   );
