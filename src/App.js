@@ -68,21 +68,26 @@ function App() {
       <AlertTitle>{t("success")}</AlertTitle>
       {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
     </Alert>
-  );
+    );
+    
+      const renderAlert = () => {
+    if (qrResult != null) {
+      if (barcodeExists(qrResult)) {
+        return errorAlert;
+      } else {
+        return successAlert;
+      }
+    }
+    return null;
+  };
   return (
     <div className="qr-scanner">
       <QrScanner
         onDecode={handleBarcodeScan}
               onError={(error) => alert(error?.message)}
-              onResult={(result) => alert(result?.text)}
+            //   onResult={(result) => alert(result?.text)}
           />
-          
-          {
-              qrResult != null
-        ? barcodeExists(qrResult)
-          ? errorAlert
-          : successAlert
-        : null}
+             {renderAlert()}
     </div>
   );
 }
