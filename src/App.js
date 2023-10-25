@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { QrScanner } from "@yudiel/react-qr-scanner";
 import { Alert, AlertTitle } from "@mui/material";
@@ -8,7 +8,26 @@ import {
   barcodeExists,
   getBarcodeData,
 } from "./BarcodeBlackListComponent";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import OfflineMessage from "./OfflineMessage";
 function App() {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const updateOnlineStatus = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
+
+    return () => {
+      window.removeEventListener("online", updateOnlineStatus);
+      window.removeEventListener("offline", updateOnlineStatus);
+    };
+  }, []);
+
   const [qrResult, setQrResult] = useState(null);
   const { t } = useTranslation();
   const barcode = getBarcodeData(qrResult);
@@ -68,27 +87,33 @@ function App() {
       <AlertTitle>{t("success")}</AlertTitle>
       {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
     </Alert>
-    );
-    
-    const renderAlert = () => {
-        if (qrResult != null) {
-            if (barcodeExists(qrResult) === true) {
-                return errorAlert;
-            } else {
-                return successAlert;
-            }
-        }
-        return null;
-    };
+  );
+
+  const renderAlert = () => {
+    if (qrResult != null) {
+      if (barcodeExists(qrResult) === true) {
+        return errorAlert;
+      } else {
+        return successAlert;
+      }
+    }
+    return null;
+  };
   return (
     <div className="qr-scanner">
       <QrScanner
         onDecode={handleBarcodeScan}
         // onResult={handleBarcodeScan}
-              // onError={(error) => 
-              //   console.log(error)}
-          />
-            {renderAlert()}
+        // onError={(error) =>
+        //   console.log(error)}
+      />
+      {isOnline ? (
+        // Your main application content here
+        <p>Your app content goes here.</p>
+      ) : (
+        <OfflineMessage />
+      )}
+      {renderAlert()}
     </div>
   );
 }
