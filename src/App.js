@@ -75,7 +75,7 @@ function App() {
             if (barcodeExists(qrResult)) {
                 return errorAlert;
             } else if(!barcodeExists(qrResult)) {
-                return successAlert;
+                return alert(qrResult + " " + barcodeExists(qrResult));
             } else {
                 return alert(qrResult + " " + barcodeExists(qrResult));
             }
