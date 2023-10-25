@@ -46,6 +46,15 @@ const barcodes = [
 
 
 export const BarcodeBlackListComponent = () => barcodes;
-export const barcodeExists = (barcodeToCheck) => barcodes.some(barcode => barcode.barcode === barcodeToCheck);
+export const barcodeExists = (barcodeToCheck) => {
+  if (barcodeToCheck === undefined) {
+    return false; // Return false if barcodeToCheck is undefined
+  }
+  
+  return barcodes.some(barcode => barcode.barcode == barcodeToCheck);
+};
 
-export const getBarcodeData = (barcodeToCheck) => barcodes.find(barcode => barcode.barcode === barcodeToCheck);
+export const getBarcodeData = (barcodeFromUser) => {
+  const foundBarcode = barcodes.find(barcode => barcode.barcode === barcodeFromUser);
+  return foundBarcode || { barcode: null, product_name: null, product_image: null };
+};
