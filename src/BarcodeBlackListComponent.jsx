@@ -46,6 +46,6 @@ const barcodes = [
 
 
 export const BarcodeBlackListComponent = () => barcodes;
-export const barcodeExists = (barcodeToCheck) => barcodes.some(barcode => barcode.barcode === barcodeToCheck);
+export const barcodeExists = (barcodeToCheck) => barcodes.some(barcode => barcode.barcode == barcodeToCheck);
 
-export const getBarcodeData = (barcodeToCheck) => barcodes.find(barcode => barcode.barcode === barcodeToCheck);
+export const getBarcodeData = (barcodeFromUser) => barcodes.find(barcode => barcode.barcode == barcodeFromUser);

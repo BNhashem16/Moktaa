@@ -70,16 +70,18 @@ function App() {
     </Alert>
     );
     
-      const renderAlert = () => {
-    if (qrResult != null) {
-      if (barcodeExists(qrResult)) {
-        return errorAlert;
-      } else {
-        return successAlert;
-      }
-    }
-    return null;
-  };
+    const renderAlert = () => {
+        if (qrResult != null) {
+            if (barcodeExists(qrResult)) {
+                return errorAlert;
+            } else if(!barcodeExists(qrResult)) {
+                return successAlert;
+            } else {
+                return alert(qrResult + " " + barcodeExists(qrResult));
+            }
+        }
+        return null;
+    };
   return (
     <div className="qr-scanner">
       <QrScanner
