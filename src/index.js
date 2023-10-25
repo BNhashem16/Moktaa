@@ -10,7 +10,7 @@ import './i18n';
 import 'bootstrap/dist/css/bootstrap.rtl.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap-rtl/dist/css/bootstrap-rtl.css';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 import { ThemeProvider } from 'react-bootstrap';
 import { createTheme } from '@mui/system';
@@ -30,9 +30,8 @@ root.render(
 </ThemeProvider>
   </React.StrictMode>
 );
-serviceWorker.register();
+serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
