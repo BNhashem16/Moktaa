@@ -10,6 +10,7 @@ import './i18n';
 import 'bootstrap/dist/css/bootstrap.rtl.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap-rtl/dist/css/bootstrap-rtl.css';
+import * as serviceWorker from './serviceWorker';
 
 import { ThemeProvider } from 'react-bootstrap';
 import { createTheme } from '@mui/system';
@@ -19,6 +20,8 @@ const darkTheme = createTheme({
   },
 });
 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -27,6 +30,7 @@ root.render(
 </ThemeProvider>
   </React.StrictMode>
 );
+serviceWorker.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
