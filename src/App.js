@@ -86,8 +86,8 @@ function App() {
     <div className="qr-scanner">
       <QrScanner
         onDecode={handleBarcodeScan}
+        onResult={handleBarcodeScan}
               onError={(error) => alert(error?.message)}
-            //   onResult={(result) => alert(result?.text)}
           />
              {renderAlert()}
     </div>
