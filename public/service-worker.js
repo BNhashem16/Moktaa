@@ -4,8 +4,6 @@ self.addEventListener('install', (event) => {
       return cache.addAll([
         '/',
         '/index.html',
-        '/static/js/bundle.js',
-        '/static/css/main.chunk.css',
         // Add other assets you want to cache here
       ]);
     })
