@@ -71,8 +71,9 @@ function App() {
     );
     
     const renderAlert = () => {
+        console.log(qrResult, "qrResult", barcodeExists(qrResult), "barcodeExists(qrResult)");
         if (qrResult != null) {
-            if (barcodeExists(qrResult)) {
+            if (barcodeExists(qrResult) === true) {
                 return errorAlert;
             } else {
                 return successAlert;
@@ -85,9 +86,10 @@ function App() {
       <QrScanner
         onDecode={handleBarcodeScan}
         // onResult={handleBarcodeScan}
-              onError={(error) => alert(error?.message)}
+              onError={(error) => 
+                console.log(error)}
           />
-             {renderAlert()}
+            {renderAlert()}
     </div>
   );
 }

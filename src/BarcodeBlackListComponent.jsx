@@ -56,5 +56,5 @@ export const barcodeExists = (barcodeToCheck) => {
 
 export const getBarcodeData = (barcodeFromUser) => {
   const foundBarcode = barcodes.find(barcode => barcode.barcode === barcodeFromUser);
-  return foundBarcode || null; // Return null if the barcode is not found
+  return foundBarcode || { barcode: null, product_name: null, product_image: null };
 };
