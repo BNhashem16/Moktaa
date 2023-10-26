@@ -51,7 +51,7 @@ export const barcodeExists = (barcodeToCheck) => {
     return false; // Return false if barcodeToCheck is undefined
   }
   
-  return barcodes.some(barcode => barcode.barcode == barcodeToCheck);
+  return barcodes.some(barcode => barcode.barcode === barcodeToCheck);
 };
 
 export const getBarcodeData = (barcodeFromUser) => {

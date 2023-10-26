@@ -3,11 +3,7 @@ import "./App.css";
 import { QrScanner } from "@yudiel/react-qr-scanner";
 import { Alert, AlertTitle } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import {
-  BarcodeBlackListComponent,
-  barcodeExists,
-  getBarcodeData,
-} from "./BarcodeBlackListComponent";
+import { barcodeExists, getBarcodeData } from "./BarcodeBlackListComponent";
 function App() {
   const [qrResult, setQrResult] = useState(null);
   const { t } = useTranslation();
@@ -68,28 +64,32 @@ function App() {
       <AlertTitle>{t("success")}</AlertTitle>
       {t("this_is_success_alert")} — <strong>{t("product_whitelist")}</strong>
     </Alert>
+  );
+
+  const renderAlert = () => {
+    console.log(
+      qrResult,
+      "qrResult",
+      barcodeExists(qrResult),
+      "barcodeExists(qrResult)"
     );
-    
-    const renderAlert = () => {
-        console.log(qrResult, "qrResult", barcodeExists(qrResult), "barcodeExists(qrResult)");
-        if (qrResult != null) {
-            if (barcodeExists(qrResult) === true) {
-                return errorAlert;
-            } else {
-                return successAlert;
-            }
-        }
-        return null;
-    };
+    if (qrResult != null) {
+      if (barcodeExists(qrResult) === true) {
+        return errorAlert;
+      } else {
+        return successAlert;
+      }
+    }
+    return null;
+  };
   return (
     <div className="qr-scanner">
       <QrScanner
         onDecode={handleBarcodeScan}
         // onResult={handleBarcodeScan}
-              onError={(error) => 
-                console.log(error)}
-          />
-            {renderAlert()}
+        onError={(error) => console.log(error)}
+      />
+      {renderAlert()}
     </div>
   );
 }
