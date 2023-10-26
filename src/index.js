@@ -1,30 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './i18n';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./i18n";
 
-// import bootstrap rtl 
+// import bootstrap rtl
 
-import 'bootstrap/dist/css/bootstrap.rtl.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import 'bootstrap-rtl/dist/css/bootstrap-rtl.css';
-
-import { ThemeProvider } from 'react-bootstrap';
-import { createTheme } from '@mui/system';
+import "bootstrap/dist/css/bootstrap.rtl.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap-rtl/dist/css/bootstrap-rtl.css";
+import { ThemeProvider } from "react-bootstrap";
+import { createTheme } from "@mui/system";
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
   },
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
+  navigator.serviceWorker
+    .register("/service-worker.js")
+    .then((registration) => {
+      console.log("Service Worker registered with scope:", registration.scope);
+    })
+    .catch((error) => {
+      console.error("Service Worker registration failed:", error);
+    });
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider dir="rtl" theme={darkTheme}>
-  <App />
-</ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
