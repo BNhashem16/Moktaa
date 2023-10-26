@@ -14,31 +14,11 @@
     "bootstrap-rtl": "^3.3.4",
     "i18next": "^23.6.0",
     "react": "^18.2.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
-    "react-app-rewired": "^2.2.1",
-    "react-barcode-qrcode-scanner": "^0.1.1",
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.3.1",
     "react-native-svg": "^13.14.0",
     "react-scripts": "^5.0.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    "react-toastify": "^9.1.3",
-    "react-webcam": "^7.1.1",
-    "sw-precache-webpack-plugin": "^1.0.0",
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
-=======
-    "react-toastify": "^9.1.3",
-    "react-webcam": "^7.1.1",
-    "sw-precache-webpack-plugin": "^1.0.0",
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
     "tesseract.js": "^5.0.2",
     "web-vitals": "^2.1.4",
     "workbox": "^0.0.0",

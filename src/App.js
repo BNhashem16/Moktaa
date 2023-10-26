@@ -1,40 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { QrScanner } from "@yudiel/react-qr-scanner";
 import { Alert, AlertTitle } from "@mui/material";
 import { useTranslation } from "react-i18next";
-<<<<<<< HEAD
 import { barcodeExists, getBarcodeData } from "./BarcodeBlackListComponent";
-=======
-import {
-  BarcodeBlackListComponent,
-  barcodeExists,
-  getBarcodeData,
-} from "./BarcodeBlackListComponent";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import OfflineMessage from "./OfflineMessage";
-<<<<<<< HEAD
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
-=======
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
 function App() {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
-
-  useEffect(() => {
-    const updateOnlineStatus = () => {
-      setIsOnline(navigator.onLine);
-    };
-
-    window.addEventListener("online", updateOnlineStatus);
-    window.addEventListener("offline", updateOnlineStatus);
-
-    return () => {
-      window.removeEventListener("online", updateOnlineStatus);
-      window.removeEventListener("offline", updateOnlineStatus);
-    };
-  }, []);
-
   const [qrResult, setQrResult] = useState(null);
   const { t } = useTranslation();
   const barcode = getBarcodeData(qrResult);
@@ -97,18 +67,12 @@ function App() {
   );
 
   const renderAlert = () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
     console.log(
       qrResult,
       "qrResult",
       barcodeExists(qrResult),
       "barcodeExists(qrResult)"
     );
-=======
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
-=======
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
     if (qrResult != null) {
       if (barcodeExists(qrResult) === true) {
         return errorAlert;
@@ -123,26 +87,9 @@ function App() {
       <QrScanner
         onDecode={handleBarcodeScan}
         // onResult={handleBarcodeScan}
-<<<<<<< HEAD
-<<<<<<< HEAD
         onError={(error) => console.log(error)}
       />
-=======
-=======
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
-        // onError={(error) =>
-        //   console.log(error)}
-      />
-      {isOnline ? (
-        // Your main application content here
-        <p>Your app content goes here.</p>
-      ) : (
-        <OfflineMessage />
-      )}
-<<<<<<< HEAD
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
-=======
->>>>>>> abbd5b04970f28d1c1838a597622d497f16f070f
+
       {renderAlert()}
     </div>
   );
