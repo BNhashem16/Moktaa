@@ -12,6 +12,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-rtl/dist/css/bootstrap-rtl.css";
 import { ThemeProvider } from "react-bootstrap";
 import { createTheme } from "@mui/system";
+import { TranslationProvider } from "./TranslationContext";
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -33,7 +34,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider dir="rtl" theme={darkTheme}>
+    <TranslationProvider>
       <App />
+    </TranslationProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
